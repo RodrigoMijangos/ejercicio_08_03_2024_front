@@ -1,0 +1,34 @@
+<div>
+
+    <h1>Lista de Empleados</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>CURP</th>
+            <th>RFC</th>
+            <th>Edad</th>
+            <th>Telefono</th>
+            <th>Correo</th>
+            <th>Departamento</th>
+        </tr>
+        <tr *ngFor="let empleado of empleados_lista;">
+            <td>{{empleado.id}}</td>
+            <td>{{empleado.nombre}}</td>
+            <td>{{empleado.apellido}}</td>
+            <td>{{empleado.curp}}</td>
+            <td>{{empleado.rfc}}</td>
+            <td>{{empleado.edad}}</td>
+            <td>{{empleado.telefono}}</td>
+            <td>{{empleado.correo}}</td>
+            <td>{{empleado.departamento.nombre}}</td>
+        </tr>
+    </table>
+
+    <h1>Insertar nuevo empleado</h1>
+
+    <app-nuevo-empleado></app-nuevo-empleado>
+
+</div>

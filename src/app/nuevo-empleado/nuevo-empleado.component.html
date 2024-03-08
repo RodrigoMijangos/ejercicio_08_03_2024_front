@@ -1,0 +1,20 @@
+<form>
+    <label for="">Nombre</label>
+    <input type="text" name="" id="" placeholder="Nombre"><br>
+    <label for="">Apellido</label>
+    <input type="text" name="" id="" placeholder="Apellido"><br>
+    <label for="">curp</label>
+    <input type="text" name="" id="" placeholder="curp"><br>
+    <label for="">rfc</label>
+    <input type="text" name="" id="" placeholder="rfc"><br>
+    <label for="">edad</label>
+    <input type="text" name="" id="" placeholder="edad"><br>
+    <label for="">telefono</label>
+    <input type="text" name="" id="" placeholder="telefono"><br>
+    <label for="">correo</label>
+    <input type="text" name="" id="" placeholder="correo"><br>
+    <label for="">departamento</label>
+    <select name="" id="" (change)="onChange($event)">
+        <option value="departamento.id" *ngFor="let departamento of departamento_lista, index as i" [selected]="i === 0" [value]="departamento.id">{{departamento.nombre}}</option>
+    </select>
+</form>
