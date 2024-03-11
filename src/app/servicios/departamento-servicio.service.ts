@@ -1,21 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Departamento } from '../entidades/departamento';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DepartamentoServicio {
 
-  constructor() { }
+  constructor(private _http: HttpClient) { }
 
-  getDepartamentos(): Departamento[]{
-    return [
-      {id: 1, nombre: "Departamento 1", descripcion: "Descripcion 1", direccion: "direccion 1"},
-      {id: 2, nombre: "Departamento 2", descripcion: "Descripcion 2", direccion: "direccion 2"},
-      {id: 3, nombre: "Departamento 3", descripcion: "Descripcion 3", direccion: "direccion 3"},
-      {id: 4, nombre: "Departamento 4", descripcion: "Descripcion 4", direccion: "direccion 4"},
-    ]
-  
+  server: String = "localhost:8080/api/v1/"
+
+  getDepartamentos(): Observable<Departamento[]>{
+    return this._http.get<Departamento[]>(this.server+"departamentos")
   }
 
 }

@@ -1,36 +1,33 @@
 import { Injectable } from '@angular/core';
 import { Empleado } from '../entidades/empleado';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmpleadoServicio {
 
-  constructor() { }
+  constructor(private _http: HttpClient) { }
 
-  getEmpleados(): Empleado[]{
-    return [
-      {id: 1, nombre: "Empleado 1", apellido: "Apellido 1", edad: "20", correo: "correo1@mail.com", curp: "CURP1", rfc: "RFC1", telefono: "Telefono 1", 
-      departamento: {
-        id: 1,
-        nombre: "Nombre 1",
-        descripcion:"descripcion 1",
-        direccion: "Direccion 1"
-      }},
-      {id: 2, nombre: "Empleado 1", apellido: "Apellido 1", edad: "20", correo: "correo1@mail.com", curp: "CURP1", rfc: "RFC1", telefono: "Telefono 1", 
-      departamento: {
-        id: 1,
-        nombre: "Nombre 1",
-        descripcion:"descripcion 1",
-        direccion: "Direccion 1"
-      }},
-      {id: 3, nombre: "Empleado 1", apellido: "Apellido 1", edad: "20", correo: "correo1@mail.com", curp: "CURP1", rfc: "RFC1", telefono: "Telefono 1", 
-      departamento: {
-        id: 1,
-        nombre: "Nombre 1",
-        descripcion:"descripcion 1",
-        direccion: "Direccion 1"
-      }}
-    ]
+  server: String = "localhost:8080/api/v1/"
+
+  getEmpleados(): Observable<Empleado[]>{
+    return this._http.get<Empleado[]>(this.server+"empleados")
+  }
+
+  getEmpleado(id: number): Observable<Empleado>{
+    return this._http.get<Empleado>(this.server+`empleados/${id}`)
+  }
+
+  postEmpleado(empleado: Empleado): void{
+    this._http.post(this.server+"empleados", empleado)
+  }
+
+  putEmpleado(empleado: Empleado): void{
+    this._http.put(this.server+`empleados`, empleado)
+  }
+  deleteEmpleado(id: number): void{
+    this._http.delete(this.server+`empleados/${id}`)
   }
 }

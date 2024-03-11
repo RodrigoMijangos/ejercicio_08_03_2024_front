@@ -1,6 +1,6 @@
-<form>
+<form (ngModelChange)="changeModel()">
     <label for="">Nombre</label>
-    <input type="text" name="" id="" placeholder="Nombre"><br>
+    <input type="text" name="" id="nombre" placeholder="Nombre"><br>
     <label for="">Apellido</label>
     <input type="text" name="" id="" placeholder="Apellido"><br>
     <label for="">curp</label>
@@ -16,5 +16,6 @@
     <label for="">departamento</label>
     <select name="" id="" (change)="onChange($event)">
         <option value="departamento.id" *ngFor="let departamento of departamento_lista, index as i" [selected]="i === 0" [value]="departamento.id">{{departamento.nombre}}</option>
-    </select>
+    </select><br>
+    <button>Enviar</button>
 </form>
