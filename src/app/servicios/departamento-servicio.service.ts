@@ -10,7 +10,7 @@ export class DepartamentoServicio {
 
   constructor(private _http: HttpClient) { }
 
-  server: String = "localhost:8080/api/v1/"
+  server: String = "http://localhost:8080/api/v1/"
 
   getDepartamentos(): Observable<Departamento[]>{
     return this._http.get<Departamento[]>(this.server+"departamentos")

@@ -1,13 +1,25 @@
-export interface EmpleadoRequest {
+/*import { Empleado } from "./empleado"
 
-    id: number
+export class EmpleadoRequest {
+
     nombre: string
     apellido: string
     curp: string
     rfc: string
-    edad: string
+    edad: number
     telefono: string
     correo: string
-    departamento: number
+    idDepartamento: number
 
-}
+    constructor(empleado: Empleado){
+        this.nombre = empleado.nombre
+        this.apellido = empleado.apellido
+        this.curp = empleado.curp,
+        this.rfc = empleado.rfc,
+        this.edad = empleado.edad,
+        this.telefono = empleado.telefono,
+        this.correo = empleado.correo,
+        this.idDepartamento = empleado.idDepartamento
+    }
+
+}*/

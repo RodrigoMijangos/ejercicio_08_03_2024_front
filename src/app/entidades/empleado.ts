@@ -7,9 +7,10 @@ export interface Empleado {
     apellido: string
     curp: string
     rfc: string
-    edad: string
+    edad: number
     telefono: string
     correo: string
-    departamento: Departamento
+    //departamento: Departamento
+    idDepartamento: number
 
 }
