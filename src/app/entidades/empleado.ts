@@ -10,7 +10,5 @@ export interface Empleado {
     edad: number
     telefono: string
     correo: string
-    //departamento: Departamento
-    idDepartamento: number
-
+    departamento: Departamento
 }

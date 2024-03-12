@@ -13,11 +13,11 @@
     <label for="">correo</label>
     <input type="text" name="correo" id="" placeholder="correo" [(ngModel)]="empleadoNuevo.correo"><br>
     <label for="">departamento</label>
-    <select *ngIf="!editar" name="" id="">
-        <option *ngFor="let departamento of departamento_lista, index as i" [selected]="i === 0" [value]="departamento">{{departamento.nombre}}</option>
+    <select *ngIf="!editar" name="" id="" (change)="onChange($event)">
+        <option *ngFor="let departamento of departamento_lista, index as i" [selected]="i === 0" [value]="departamento.id">{{departamento.nombre}}</option>
     </select>
-    <select *ngIf="editar" name="" id="">
-        <option *ngFor="let departamento of departamento_lista" [selected]="empleadoNuevo.idDepartamento === departamento.id" [value]="departamento">{{departamento.nombre}}</option>
+    <select *ngIf="editar" name="" id="" (change)="onChange($event)">
+        <option *ngFor="let departamento of departamento_lista" [selected]="empleadoNuevo.departamento.id === departamento.id" [value]="departamento.id">{{departamento.nombre}}</option>
     </select>
     <br>
     <button (click)="changeModel()">Enviar</button>
